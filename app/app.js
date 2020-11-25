@@ -14,6 +14,9 @@ app.get('/' , function(req , res){
 
 });
 
+// set the db host to the same ip as the db
+process.env.DB_HOST = "192.168.10.148"
+
 // connect to database
 if(process.env.DB_HOST) {
   mongoose.connect(process.env.DB_HOST);

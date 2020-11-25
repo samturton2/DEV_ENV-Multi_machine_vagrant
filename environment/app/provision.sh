@@ -21,3 +21,8 @@ sudo apt-get install nginx -y
 
 # finally, restart the nginx service so the new config takes hold
 sudo service nginx restart
+
+# Start the app
+cd /home/ubuntu/app
+sudo npm install
+npm start
