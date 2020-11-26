@@ -24,10 +24,10 @@ sudo service nginx restart
 
 # set the db host to the same ip as the db in the global variable folder
 echo "export DB_HOST=192.168.10.148" >> ~/.bashrc
-export DB_HOST=192.168.10.148
+# export DB_HOST=192.168.10.148
+
 # go to app and install npm
 cd /home/ubuntu/app
 sudo npm install
-
-pm2 start app.js
+npm start app.js
 # Dont need to set the port as the mogodb is assigned to 0.0.0.0 so it listens across all ports
