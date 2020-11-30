@@ -2,7 +2,6 @@
 This repository combines the VM's made in the [mongo db repo](https://github.com/samturton2/DEV_ENV-mongo_db_task) and the [sample node app repo](https://github.com/samturton2/DEV_ENV-node_sample_app). 
 
 ## Summary
-
 The sample application has the ability to connect to a database. We need to provision our development environment with a vm for the database and one for the database.
 
 Vagrant is capable of running two or more virtual machines at once with different configurations.
@@ -67,6 +66,7 @@ vagrant up
 - Before starting the app we use our bash commands to declare the environment variable `DB_HOST` to direct the app to the db ip address and link the two
 - If you open the vagrant file in the main directory, you should see the `config.vm.provision` command (line 17)  telling the programme to run the provision installation commands once the virtual environment is up and running.
 - The final paragraph in the provision file are the commands to run the app, as you open the VM. Can # it out and enter manually if you dont want the app to run instantly.
+- line 30 - 35 is the process of syncing a reverse proxy file so that the app can run when the alias is typed straight into the url
 
 ##### db provision.sh
 - In this file we can see all shell commands to install the packages necessary

@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
     db.vm.provision "shell", path: "environment/db/provision.sh", privileged: false
     
     # Sync our config file with the VM
-    db.vm.synced_folder "config-files", "/Config_Folder"
+    db.vm.synced_folder "config-files-db", "/Config_Folder"
   end
 
 end
