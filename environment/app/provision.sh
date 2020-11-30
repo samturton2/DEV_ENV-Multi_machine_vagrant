@@ -20,20 +20,23 @@ sudo npm install pm2 -g
 # Install nginx
 sudo apt-get install nginx -y
 
+# Make a global variable
+export DB_HOST=192.168.10.148
 # set the db host to the same ip as the db in the global variable folder
 echo "export DB_HOST=192.168.10.148" >> ~/.bashrc
 # export DB_HOST=192.168.10.148
-# export it to both .bashrc files just in case
-echo "export DB_HOST=192.168.10.148" >> /home/ubuntu/.bashrc
+source ~/.bashrc
 
 
-
-# Move the synced reverse proxy configuration file to the sites available folder
-sudo mv /home/ubuntu/app/reverse-proxy.conf /etc/nginx/sites-available/
+# copy the synced reverse proxy configuration file to the sites available folder
+sudo cp /home/ubuntu/app/reverse-proxy.conf /etc/nginx/sites-available/
 # disable the default virtual host
 sudo unlink etc/nginx/sites-enabled/default
-# link the new proxy
+# link the new proxy, setting it as default
 sudo ln -s /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/reverse-proxy.conf
+# Delete default
+sudo rm etc/nginx/sites-available/default
+sudo rm etc/nginx/sites-enabled/default
 
 # finally, restart the nginx service so the new config takes hold
 sudo service nginx restart
